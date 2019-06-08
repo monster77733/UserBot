@@ -346,7 +346,7 @@ async def download_video(v_url):
 
         await v_url.edit("**Fetching...**")
 
-        
+        video = YouTube(url)
 
         if quality:
             video_stream = video.streams.filter(
