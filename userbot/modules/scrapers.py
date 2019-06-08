@@ -270,11 +270,12 @@ async def lang(value):
     if not value.text[0].isalpha() and value.text[0] not in ("/", "#", "@", "!"):
         global LANG
         LANG = value.pattern_match.group(1)
+        await value.edit("Default language changed to **" + LANG + "**")
         if BOTLOG:
             await value.client.send_message(
                 BOTLOG_CHATID, "Default language changed to **" + LANG + "**"
             )
-            await value.edit("Default language changed to **" + LANG + "**")
+
 
 
 @register(outgoing=True, pattern="^.yt (.*)")
@@ -379,9 +380,9 @@ async def download_video(v_url):
 
         video_size = video_stream.filesize / 1000000
 
-        if video_size >= 300:
+        if video_size >= 50:
             await v_url.edit(
-                ("**File larger than 300MB. Sending the link instead.\n**"
+                ("**File larger than 50MB. Sending the link instead.\n**"
                  f"Get the video [here]({video_stream.url})\n\n"
                  "**If the video opens instead of playing, right-click(or long press) and "
                  "press 'Save Video As...'(may depend on the browser) to download the video.**")
@@ -392,7 +393,7 @@ async def download_video(v_url):
 
         video_stream.download(filename=video.title)
 
-        url = f"https://img.youtube.com/vi/{video.video_id}/maxresdefault.jpg"
+        url = video.thumbnail_url
         resp = get(url)
         with open('thumbnail.jpg', 'wb') as file:
             file.write(resp.content)
