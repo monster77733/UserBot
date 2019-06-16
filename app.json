@@ -10,8 +10,8 @@
     "productivity"
   ],
   "repository": "https://github.com/noobvishal/UserBot",
-  "website":   "https://github.com/RaphielGang/Telegram-UserBot/wiki",
-  "success_url": "https://t.me/userbot_announcements",
+  "website":   "https://github.com/noobvishal",
+  "success_url": "https://t.me/noobvishal",
   "env": {
     "API_KEY": {
       "description": "Get this value from my.telegram.org.",
@@ -20,6 +20,10 @@
     "API_HASH": {
       "description": "Get this value from my.telegram.org.",
       "value": ""
+    },
+      "OCR_SPACE_API_KEY": {
+      "description": "Get from https://ocr.space/ocrapi",
+      "required": false
     },
     "STRING_SESSION": {
       "description": "Get this value by running python3 string_session.py locally",
@@ -49,6 +53,10 @@
       "required": false
     },
     "PM_AUTO_BAN": {
+      "description": "Get from https://console.cloud.google.com",
+      "required": false
+    },
+    "YOUTUBE_API_KEY": {
       "description": "PM Auto-Ban Feature Switch",
       "required": false
     },
